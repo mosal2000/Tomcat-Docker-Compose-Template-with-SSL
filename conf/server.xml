@@ -65,9 +65,11 @@
          AJP  Connector: /docs/config/ajp.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
+    <!-- STIG_ID = TCAT-AS-000020, TCAT-AS-000040 -->
     <Connector port="8080" protocol="HTTP/1.1"
                connectionTimeout="20000"
-               redirectPort="8443" />
+               redirectPort="8443"
+               SSLEnabledProtocols="TLSv1.2" />
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -83,14 +85,15 @@
          the SSLImplementation selected. JSSE style configuration is used below.
     -->
 
+    <!-- STIG_ID = TCAT-AS-000100 -->
     <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
-               maxThreads="150" SSLEnabled="true">
+               maxThreads="150" SSLEnabled="true" scheme="https" secure="true">
         <UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" />
         <SSLHostConfig>
 
             <Certificate certificateKeyFile="ssl/localhost-rsa-key.pem"
                          certificateFile="ssl/localhost-rsa-cert.pem"
-                         certificateKeyPassword="changeit"
+                         certificateKeyPassword="changeit1"
                          type="RSA" />
         </SSLHostConfig>
     </Connector>
@@ -142,9 +145,11 @@
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
+        <!-- STIG_ID = TCAT-AS-000170, TCAT-AS-000180, TCAT-AS-000240, TCAT-AS-000250 -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log" suffix=".txt"
-               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" 
+               requestAttributesEnabled="true" />
 
       </Host>
     </Engine>

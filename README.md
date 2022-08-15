@@ -5,7 +5,7 @@ Certificate need to be created under ssl directory:
 ```
 $ openssl req -x509 -newkey rsa:4096 -keyout localhost-rsa-key.pem -out localhost-rsa-cert.pem -days 36500
 ```
-Default password: changeit
+Default password: changeit1
 
 ## Running Docker
 Build docker image use this command.

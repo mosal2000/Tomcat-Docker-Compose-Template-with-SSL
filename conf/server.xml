@@ -124,7 +124,8 @@
 
       <!-- Use the LockOutRealm to prevent attempts to guess user passwords
            via a brute-force attack -->
-      <Realm className="org.apache.catalina.realm.LockOutRealm">
+     <!-- STIG_ID = TCAT-AS-001020 TCAT-AS-001030 TCAT-AS-001040 -->
+      <Realm className="org.apache.catalina.realm.LockOutRealm" failureCount="5" lockOutTime="600">
         <!-- This Realm uses the UserDatabase configured in the global JNDI
              resources under the key "UserDatabase".  Any edits
              that are performed against this UserDatabase are immediately

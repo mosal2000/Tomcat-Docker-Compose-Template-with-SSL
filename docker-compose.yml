@@ -3,9 +3,9 @@ version: "3"
 services:
   tomcat:
     build: .
-    container_name: tomcat-container
+    container_name: tomcat
     expose:
-      - 8080
+      - 8443
     restart: always
     ports:
       - 80:8080

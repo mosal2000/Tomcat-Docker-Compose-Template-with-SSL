@@ -13,5 +13,11 @@ services:
     environment:
       - HOSTNAME=${HOSTNAME}
     volumes:
-      - /var/log/tomcat:/usr/local/tomcat/logs
+      - /usr/share/tomcat/logs:/usr/local/tomcat/logs
       - ./webapps.dist:/usr/local/tomcat/webapps
+      # - ./conf:/usr/local/tomcat/conf
+      # - /usr/share/tomcat/bin:/usr/local/tomcat/bin
+      # - /usr/share/tomcat/lib:/usr/local/tomcat/lib
+    # command:
+    #   - auditctl -w ./conf -p wa -k tomcat
+

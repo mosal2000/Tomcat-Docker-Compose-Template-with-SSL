@@ -2,7 +2,7 @@ FROM tomcat:10.0
 
 COPY ssl $CATALINA_HOME/ssl/
 COPY conf/server.xml $CATALINA_HOME/conf/server.xml
-COPY conf/web.xml $CATALINA_HOME/conf/web.xml
+# COPY conf/web.xml $CATALINA_HOME/conf/web.xml
 COPY conf/tomcat-users.xml $CATALINA_HOME/conf/tomcat-users.xml
 
 # Update Server Info. STIG ID = TCAT-AS-000950

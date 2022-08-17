@@ -2,8 +2,9 @@ FROM tomcat:10.0
 
 COPY ssl $CATALINA_HOME/ssl/
 COPY conf/server.xml $CATALINA_HOME/conf/server.xml
-# COPY conf/web.xml $CATALINA_HOME/conf/web.xml
+COPY conf/web.xml $CATALINA_HOME/conf/web.xml
 COPY conf/tomcat-users.xml $CATALINA_HOME/conf/tomcat-users.xml
+COPY conf/catalina.properties $CATALINA_HOME/conf/catalina.properties
 
 # Update Server Info. STIG ID = TCAT-AS-000950
 RUN jar -xf $CATALINA_HOME/lib/catalina.jar org/apache/catalina/util/ServerInfo.properties
@@ -40,5 +41,6 @@ RUN chown tomcat:tomcat $CATALINA_HOME/work/
 # Replace ROOT with Someting else --  Need to do!!!
 # RUN rm -r $CATALINA_HOME/webapps/ROOT
 # RUN rm -r $CATALINA_HOME/webapps/docs
+# RUN rm -r $CATALINA_HOME/webapps/examples
 
 CMD [ "catalina.sh", "run" ]

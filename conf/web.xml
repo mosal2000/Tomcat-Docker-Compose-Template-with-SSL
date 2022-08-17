@@ -510,20 +510,21 @@
   <!--                       sniffing be added to every response? [true]    -->
 
     <!-- STIG_ID = TCAT-AS-000030 -->
+
     <filter>
         <filter-name>httpHeaderSecurity</filter-name>
         <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
         <async-supported>true</async-supported>
-        <init-param>
+       <init-param>
             <param-name>hstsEnabled</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <param-name>maxAgeSeconds</param-name>
+            <param-name>hstsMaxAgeSeconds</param-name>
             <param-value>31536000</param-value>
         </init-param>
         <init-param>
-            <param-name>includeSubDomains</param-name>
+            <param-name>hstsIncludeSubDomains</param-name>
             <param-value>true</param-value>
         </init-param>
     </filter>

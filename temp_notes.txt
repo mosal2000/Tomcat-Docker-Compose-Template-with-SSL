@@ -1,0 +1,30 @@
+  <!-- STIG_ID=TCAT-AS-000750 -->
+  <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" FIPSMode="on" />
+
+
+
+
+ => [internal] load build definition from Dockerfile                                                                                             0.0s
+ => => transferring dockerfile: 536B                                                                                                             0.0s
+ => [internal] load .dockerignore                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                  0.0s
+ => [internal] load metadata for docker.io/library/tomcat:10.0                                                                                   0.4s
+ => [internal] load build context                                                                                                                0.0s
+ => => transferring context: 216B                                                                                                                0.0s
+ => [ 1/10] FROM docker.io/library/tomcat:10.0@sha256:1c95c053578c1f229fb45e28ce17da5447b25178f276379c87c418d9bc2c8d21                           0.0s
+ => CACHED [ 2/10] COPY ssl /usr/local/tomcat/ssl/                                                                                               0.0s
+ => CACHED [ 3/10] COPY conf/server.xml /usr/local/tomcat/conf/server.xml                                                                        0.0s
+ => CACHED [ 4/10] COPY conf/tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml                                                            0.0s
+ => CACHED [ 5/10] RUN chmod -R 640 /usr/local/tomcat/conf/                                                                                      0.0s
+ => CACHED [ 6/10] RUN chmod 750 /usr/local/tomcat/conf/                                                                                         0.0s
+ => CACHED [ 7/10] RUN chmod -R 640 /usr/local/tomcat/bin/                                                                                       0.0s
+ => CACHED [ 8/10] RUN chmod 750 /usr/local/tomcat/bin/                                                                                          0.0s
+ => CACHED [ 9/10] RUN chmod -R 640 /usr/local/tomcat/logs/                                                                                      0.0s
+ => CACHED [10/10] RUN chmod 750 /usr/local/tomcat/logs/                                                                                         0.0s
+ => exporting to image                                                                                                                           0.1s
+ => => exporting layers                                                                                                                          0.0s
+ => => writing image sha256:471c11a57d7ff42b1bec342ec3ee42888215b11ec8d736d11ae37f6ab8c541e7                                                     0.0s
+ => => naming to docker.io/library/tomcat-docker-compose-template-with-ssl_tomcat                                                                0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Recreating 35e2059e9848_tomcat-container ... error
